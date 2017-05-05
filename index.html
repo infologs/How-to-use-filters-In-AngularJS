@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app01">
+<head>
+    <title></title>
+    <script src="js/angular.js"></script>
+    <script src="scripts/app.js"></script>    
+</head>
+<body>
+    <div ng-controller="controller1">
+        <form name="Form1" novalidate>
+            <h1>Uppercase filter</h1>
+            <p>This is {{ Name | uppercase }}</p>
+            <br/>
+            <h1>Lowercase filter</h1>
+            <p>This is {{ Name | lowercase }}</p>
+            <br/>
+            <h1>Oderby filter inside the directive</h1>
+            <div ng-init='Country = ["India","Ameraca","England", "Australia"]'>
+                <ul>
+                    <li ng-repeat="countryName in Country"> {{ countryName }}</li>
+                <ul>
+            </div>
+            <br/>
+            <h1>Currency filter</h1>
+            <p>Please donate {{ Amount | currency }}</p>
+            <p>Please donate {{ Amount | currency : "Rs" }}</p>
+            <br/>
+            <h1>How to use filter Filter. (Will Load only country in which 'i' character is available)</h1>
+            <div ng-init='Country = ["India","Ameraca","England", "Australia"]'>
+                <ul>
+                    <li ng-repeat="countyName in Country | filter : 'i'"> {{  countyName | uppercase }}</li>
+                </ul>
+            </div>
+            <br/>
+            <h1>Filter array based on user input</h1>
+            <div ng-init='Details = ["India","Ameraca","England", "Australia"]'>
+            <input type="text" ng-model="CountryName" />
+            <ul>
+                <li ng-repeat="item in Details | filter : CountryName"> {{ item  }}</li>
+            </ul>
+            </div> 
+        </form>
+    </div>
+</body>
+</html>
