@@ -38,7 +38,18 @@
             <ul>
                 <li ng-repeat="item in Details | filter : CountryName"> {{ item  }}</li>
             </ul>
-            </div> 
+            </div>
+            <h1>Sort Array based on user Input</h1>
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th ng-model="PersonName" ng-click="Sort('Name')">name</th>
+                    <th ng-model="CountryName" ng-click="Sort('country')">CountryName</th>
+                </tr>
+                <tr ng-repeat="item in Information | orderBy : SortType">
+                    <td>{{ item.name }}</td>
+                    <td> {{ item.country }}</td>
+                </tr>
+            </table>
         </form>
     </div>
 </body>
